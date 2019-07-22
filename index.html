@@ -1,0 +1,61 @@
+<script>
+	function computerPlay(){
+		options=["Rock","Paper","Scissors"];
+		let random = Math.floor(Math.random()*3);
+		return options[random];
+	}
+
+    function playRound(playerSelection, computerSelection) {
+        playerSelection=playerSelection.toLowerCase();
+        computerSelection=computerSelection.toLowerCase();
+        if(playerSelection===computerSelection){
+            return "Its a Tie!,Try again";
+        }
+        else if(playerSelection==="rock" && computerSelection==="paper"){
+            return "You Lose! Paper beats Rock";
+        }
+        else if(playerSelection==="rock" && computerSelection==="scissors"){
+            return "You Win! Rock beats Scissors";
+        }
+        else if(playerSelection==="paper" && computerSelection==="rock"){
+            return "You Win! Paper beats Rock";
+        }
+        else if(playerSelection==="paper" && computerSelection==="scissors"){
+            return "You Lose! Scissors beats Paper";
+        }
+        else if(playerSelection==="scissors" && computerSelection==="rock"){
+            return "You Lose! Rock beats Scissors";
+        }
+        else if(playerSelection==="scissors" && computerSelection==="paper"){
+            return "You Win! Scissors beats Paper";
+        }
+    }
+
+    function game(){
+        let computerPoints=0,playerPoints=0;
+        while(true) {
+            const playerSelection=prompt("Enter your choice");
+            const computerSelection = computerPlay();
+            const roundResult=playRound(playerSelection, computerSelection);
+            console.log(roundResult);
+            if(roundResult.includes("Win")){
+                playerPoints++;
+            }
+            else if(roundResult.includes("Lose")){
+                computerPoints++;
+            }
+            console.log(`Player: ${playerPoints} , Computer:${computerPoints} `);
+            if(computerPoints===5 || playerPoints===5){
+                break;
+            }
+        }
+        if(computerPoints===5){
+            console.log("You Lose!");
+        }
+        else{
+            console.log("You Win!");
+        }
+    }
+
+    game();
+</script>
