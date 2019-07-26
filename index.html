@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock-Paper-Scissors</title>
+</head>
+<body>
+	<main>
+		<h1>Rock-Paper-Scissors</h1>
+		<div id="score"></div>
+		<div class="play-buttons">
+			<button id="Rock">Rock</button>
+			<button id="Paper">Paper</button>
+			<button id="Scissors">Scissors</button>
+		</div>
+        <div id="results"></div>
+        <div id="winner"></div>
+        <button id="reset">Click here to reset</button>
+	</main>
+</body>
+</html>
+
+
+
+
+
 <script>
 	function computerPlay(){
 		options=["Rock","Paper","Scissors"];
@@ -31,31 +57,46 @@
         }
     }
 
-    function game(){
-        let computerPoints=0,playerPoints=0;
-        while(true) {
-            const playerSelection=prompt("Enter your choice");
+    function reset(){
+        computerPoints=0;
+        playerPoints=0;
+        results.textContent="";
+        winner.textContent="";
+        score.textContent="";
+    }
+
+    function game(playerSelection){
             const computerSelection = computerPlay();
             const roundResult=playRound(playerSelection, computerSelection);
-            console.log(roundResult);
+            results.textContent=roundResult;
             if(roundResult.includes("Win")){
                 playerPoints++;
             }
             else if(roundResult.includes("Lose")){
                 computerPoints++;
             }
-            console.log(`Player: ${playerPoints} , Computer:${computerPoints} `);
-            if(computerPoints===5 || playerPoints===5){
-                break;
+            score.textContent=`Player: ${playerPoints} , Computer:${computerPoints}`;
+            if(computerPoints==5){
+                winner.textContent="You Lose!";
             }
-        }
-        if(computerPoints===5){
-            console.log("You Lose!");
-        }
-        else{
-            console.log("You Win!");
-        }
+            else if(playerPoints==5){
+                winner.textContent="You Win!";
+            }
     }
 
-    game();
+    let computerPoints=0,playerPoints=0;
+
+	let score = document.getElementById("score");
+	let results = document.getElementById("results");
+    let winner = document.getElementById("winner");
+
+	const rockBtn = document.getElementById("Rock");
+	const paperBtn = document.getElementById("Paper");
+	const scissorsBtn = document.getElementById("Scissors"); 
+    const resetBtn = document.getElementById("reset"); 	
+
+	rockBtn.addEventListener('click',()=>game("rock"));
+	paperBtn.addEventListener('click',()=>game("paper"));
+	scissorsBtn.addEventListener('click',()=>game("scissors"));
+    resetBtn.addEventListener('click',()=>reset());
 </script>
