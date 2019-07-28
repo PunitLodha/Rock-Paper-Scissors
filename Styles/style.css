@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3cd66;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+main{
+    width: 60vw;
+    height: 100vh;
+    margin: auto; 
+    padding-top: 50px;
+    text-align: center;
+    background-color: #f0c348;   
+    color: #2600ff;
+}
+
+h1{
+    font-weight: 400;
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+#info,
+#score,
+#results,
+#winner{
+    height: 45px;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+#info{
+    line-height: 1.3;
+}
+
+.play-buttons{
+    display: flex;
+    margin: 40px 40px;
+    justify-content: space-around;
+}
+
+.btn{
+    width: 180px;
+    height: 50px;
+    font-family: inherit;
+    font-size: 20px;
+    background-color: #f0b617;
+    border: 2px solid #2600ff;
+    border-radius: 30px;
+    color: #2600ff;
+    transition: background-color 0.5s ease;
+}
+
+.btn:hover{
+    background-color: #2600ff;
+    color: #f0b617;
+}
+
+.btn:focus{
+    outline: none;
+}
