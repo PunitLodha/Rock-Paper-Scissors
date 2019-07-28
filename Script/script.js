@@ -39,6 +39,9 @@ function reset(){
 }
 
 function game(playerSelection){
+        if(playerPoints==5||computerPoints==5){
+            reset();
+        }
         const computerSelection = computerPlay();
         const roundResult=playRound(playerSelection, computerSelection);
         results.textContent=roundResult;
@@ -53,7 +56,7 @@ function game(playerSelection){
             winner.textContent="You Lose!";
         }
         else if(playerPoints==5){
-            winner.textContent="You Win!";
+            winner.textContent="You Win the game!";
         }
 }
 
@@ -66,9 +69,7 @@ let winner = document.getElementById("winner");
 const rockBtn = document.getElementById("Rock");
 const paperBtn = document.getElementById("Paper");
 const scissorsBtn = document.getElementById("Scissors"); 
-const resetBtn = document.getElementById("reset"); 	
-
+ 	
 rockBtn.addEventListener('click',()=>game("rock"));
 paperBtn.addEventListener('click',()=>game("paper"));
 scissorsBtn.addEventListener('click',()=>game("scissors"));
-resetBtn.addEventListener('click',()=>reset());
