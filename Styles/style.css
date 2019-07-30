@@ -4,17 +4,17 @@
 
 body{
     background-color: #f3cd66;
+    background-image: linear-gradient(to right, #f3cd66,#f3cd66 18%,#f0c348 18%,#f0c348 82%,#f3cd66 82%);
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
 }
 
 main{
-    width: 60vw;
-    height: 100vh;
+    width: 70vw;
+    height: 100%;
     margin: auto; 
     padding-top: 50px;
-    text-align: center;
-    background-color: #f0c348;   
+    text-align: center;   
     color: #2600ff;
 }
 
@@ -63,4 +63,12 @@ h1{
 
 .btn:focus{
     outline: none;
+}
+
+@media only screen and (max-width: 640px){
+    .play-buttons{
+        flex-direction: column;
+        align-items: center;
+        height: 13em;
+    }
 }
